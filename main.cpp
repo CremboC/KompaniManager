@@ -1,41 +1,21 @@
 #include "stdafx.h"
 
-#include <iostream>
-#include <string>
-#include <chrono>
-#include <thread>
-
-#include "StorageHandler.h"
 #include "UserInterface.h"
+#include "Core.h"
 
-using std::cin;
+using std::cout;
+using std::endl;
 
-using std::this_thread::sleep_for;
-using std::chrono::milliseconds;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	UserInterface interface;
-	StorageHandler store;
+	Core core;
+	UserInterface ui(core);
 
-	cin.get();
+	// load main screen
+	ui.mainScreen();
 
-	interface.clear();
+	ui.waitForInput();
 
-	bool finished = false;
-
-	printf("%s", "|%");
-
-	for (int i = 0; i <= 50; i++)
-	{
-		printf("%s", "=");
-
-		sleep_for(milliseconds(100));
-	}
-
-	printf("%s", ">|");
-
-	cin.get();
-
-	return 1;
+	return 0;
 }

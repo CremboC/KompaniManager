@@ -2,29 +2,35 @@
 
 using std::string;
 
-struct sAddress
+#pragma once
+namespace structs
 {
-	int houseNumber;
-	string streetName;
-	string postcode;
-	string country;
-};
+	struct Address
+	{
+		int houseNumber;
+		string streetName;
+		string postcode;
+		string country;
+	};
 
-struct sCompany
-{
-	string name;
-	sAddress address;
-};
+	struct Company
+	{
+		string name;
+		Address address;
+	};
 
-struct sPerson
-{
-	string name;
-	string surname;
-	sAddress address;
-};
+	struct Person
+	{
+		string name;
+		string surname;
+		Address address;
+	};
 
-struct sEmployee
-{
-	sPerson details;
-	sCompany employer;
-};
+	struct Employee
+	{
+		Person details;
+		Company employer;
+	};
+}
+
+

@@ -2,6 +2,9 @@
 #include "Employee.h"
 
 using std::string;
+using structs::Person;
+
+using sEmployee = structs::Employee;
 
 Employee::Employee()
 {
@@ -24,19 +27,18 @@ sEmployee Employee::get(int i)
 	return employees[i];
 }
 
-bool Employee::validator(sEmployee employee)
+bool Employee::validate(sEmployee employee)
 {
-	sPerson details = employee.details;
+	Person details = employee.details;
 
-	if (details.name.length == 0)
-	{
-		
-	}
+	if (details.name.length() == 0)
+		validatorErrors.push_back("Name is required!");
+
+	if (details.surname.length() == 0)
+		validatorErrors.push_back("Surname is required!");
+
+	if (validatorErrors.size() == 0)
+		return true;
 
 	return false;
-}
-
-stringVector getValidatorErrors()
-{
-	return validatorErrors;
 }
