@@ -30,12 +30,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		printf("%s", "=");
 
-		sleep_for(milliseconds(500));
+		sleep_for(milliseconds(100));
 	}
 
 	printf("%s", ">|");
 
 	cin.get();
 
-	return 0;
+	return 1;
 }
