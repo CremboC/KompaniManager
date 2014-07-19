@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 #include <iostream>
-#include <string>
 #include <chrono>
 #include <thread>
 
@@ -57,9 +56,16 @@ void UserInterface::waitForInput()
 void UserInterface::mainScreen()
 {
 	// show all existing companies
-	cout << string(SCR_WIDTH, '-') << endl;
+	utils.printPadding();
 
-	utils.printCenter("HELLO, WELCOME TO KompaniManager");
+	utils.printCentered("HELLO, WELCOME TO KompaniManager");
+
+	companyVector comps = core.companies.all();
+
+	for (companyVector::size_type i = 0; i < comps.size(); i++)
+	{
+		cout << comps[i].name << endl;
+	}
 }
 
 void UserInterface::employeeScreen()
@@ -70,7 +76,7 @@ void UserInterface::employeeScreen()
 
 	core.employees.add(e);
 
-	cout << string(SCR_WIDTH, '-') << endl;
+	utils.printPadding();
 }
 
 void UserInterface::personScreen()

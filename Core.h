@@ -11,4 +11,3 @@ public:
 	Company companies;
 	Employee employees;
 };
-

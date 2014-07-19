@@ -1,12 +1,7 @@
 #include "Validator.h"
 
-#include <string>
-#include <list>
-#include <iostream>
-
 #include <vector>
 
-using std::list;
 using std::vector;
 using std::string;
 
@@ -18,7 +13,6 @@ typedef vector<string> stringVector;
 #pragma once
 class Employee : Validator
 {
-
 private:
 	employeeVector employees;
 	employeeVector::iterator employeesIt;
@@ -35,5 +29,4 @@ public:
 	bool validate(sEmployee employee);
 
 	stringVector getValidatorErrors();
-
 };

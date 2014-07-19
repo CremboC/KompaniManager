@@ -1,12 +1,6 @@
 #include "Validator.h"
-
-#include <string>
-#include <list>
-#include <iostream>
-
 #include <vector>
 
-using std::list;
 using std::vector;
 using std::string;
 
@@ -18,15 +12,19 @@ typedef vector<string> stringVector;
 #pragma once
 class Company : Validator
 {
-
 private:
 	companyVector companies;
 
 public:
 	Company();
 	~Company();
-	
-	static sCompany getCompany(int i);
+
+	ErrorCode add(sCompany comp);
+
+	companyVector all();
+
+	sCompany byId(int i);
+	sCompany byName(string name);
+
 	bool validate(sCompany company);
 };
-

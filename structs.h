@@ -1,5 +1,3 @@
-#include <string>
-
 using std::string;
 
 #pragma once
@@ -10,6 +8,7 @@ namespace structs
 		int houseNumber;
 		string streetName;
 		string postcode;
+		string city;
 		string country;
 	};
 
@@ -32,5 +31,3 @@ namespace structs
 		Company employer;
 	};
 }
-
-

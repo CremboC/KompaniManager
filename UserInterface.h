@@ -8,7 +8,6 @@ using std::string;
 #pragma once
 class UserInterface
 {
-
 private:
 	Core core;
 	UIUtils utils;
@@ -29,4 +28,3 @@ public:
 	void personScreen();
 	void companyScreen();
 };
-

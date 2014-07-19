@@ -1,4 +1,3 @@
-#include <string>
 #include <vector>
 #include <iostream>
 
@@ -10,8 +9,13 @@ using std::endl;
 #pragma once
 class UIUtils
 {
-
 private:
+	// padding index for the lefthand side
+	const static int LEFT = 0;
+
+	// padding index for the righthand side
+	const static int RIGHT = 1;
+
 	// returns padding from both side depending string length
 	static vector<int> paddingForCenter(string str)
 	{
@@ -32,15 +36,22 @@ private:
 	}
 
 public:
-	const static int LEFT = 0;
-	const static int RIGHT = 1;
 
-	static void printCenter(string str)
+	// prints text in the center of the console
+	static void printCentered(string str)
 	{
 		std::vector<int> padding = paddingForCenter(str);
 
 		cout << string(padding[LEFT], ' ')
 			<< str
 			<< string(padding[RIGHT], ' ') << endl;
+	}
+
+	static void printRow(structs::Company);
+	static void printRow(structs::Employee);
+
+	static void printPadding()
+	{
+		cout << string(SCR_WIDTH, '-') << endl;
 	}
 };

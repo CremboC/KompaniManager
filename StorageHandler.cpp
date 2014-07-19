@@ -6,12 +6,10 @@
 using std::string;
 
 StorageHandler::StorageHandler()
-{
-}
+{}
 
 StorageHandler::~StorageHandler()
-{
-}
+{}
 
 ErrorCode StorageHandler::openFile(string uri)
 {

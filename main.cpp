@@ -6,7 +6,6 @@
 using std::cout;
 using std::endl;
 
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Core core;

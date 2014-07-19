@@ -4,11 +4,8 @@
 #include "Employee.h"
 #include "Company.h"
 
-
 Core::Core()
-{
-}
-
+{}
 
 Core::~Core()
 {}
