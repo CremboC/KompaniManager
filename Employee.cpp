@@ -6,6 +6,7 @@ using std::string;
 Employee::Employee()
 {
 	employees.reserve(10);
+	validatorErrors.reserve(10);
 }
 
 Employee::~Employee()
@@ -25,5 +26,17 @@ sEmployee Employee::get(int i)
 
 bool Employee::validator(sEmployee employee)
 {
+	sPerson details = employee.details;
+
+	if (details.name.length == 0)
+	{
+		
+	}
+
 	return false;
+}
+
+stringVector getValidatorErrors()
+{
+	return validatorErrors;
 }
