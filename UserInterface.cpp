@@ -64,6 +64,7 @@ void UserInterface::mainScreen()
 
 	for (companyVector::size_type i = 0; i < comps.size(); i++)
 	{
+		utils.printRow(comps[i], (i == 0) ? true : false);
 		cout << comps[i].name << endl;
 	}
 }

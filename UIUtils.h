@@ -1,15 +1,21 @@
+#pragma once
+
 #include <vector>
 #include <iostream>
+#include <unordered_map>
 
 using std::string;
 using std::vector;
 using std::cout;
 using std::endl;
 
-#pragma once
+using std::unordered_map;
+
 class UIUtils
 {
 private:
+	typedef unordered_map<string, int> hashmap;
+
 	// padding index for the lefthand side
 	const static int LEFT = 0;
 
@@ -17,41 +23,20 @@ private:
 	const static int RIGHT = 1;
 
 	// returns padding from both side depending string length
-	static vector<int> paddingForCenter(string str)
-	{
-		int left, right, diff;
+	static vector<int> paddingForCenter(string str);
 
-		// index 0 is left-side, index 1 is right-side padding
-		vector<int> padding(2);
+	static hashmap printCenteredHeader(vector<string> headers);
 
-		// space left for padding
-		diff = SCR_WIDTH - str.length();
-
-		right = left = diff / 2;
-
-		padding[LEFT] = left;
-		padding[RIGHT] = right;
-
-		return padding;
-	}
+	static vector<int> centredInColumn(string columnName, string text);
 
 public:
 
 	// prints text in the center of the console
-	static void printCentered(string str)
-	{
-		std::vector<int> padding = paddingForCenter(str);
+	static void printCentered(string str);
 
-		cout << string(padding[LEFT], ' ')
-			<< str
-			<< string(padding[RIGHT], ' ') << endl;
-	}
+	static void printRow(structs::Company c, bool header = false);
 
-	static void printRow(structs::Company);
-	static void printRow(structs::Employee);
+	static void printRow(structs::Employee e, bool header = false);
 
-	static void printPadding()
-	{
-		cout << string(SCR_WIDTH, '-') << endl;
-	}
+	static void printPadding();
 };

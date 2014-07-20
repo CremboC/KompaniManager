@@ -1,6 +1,10 @@
-using std::string;
-
 #pragma once
+
+#include <vector>
+
+using std::string;
+using std::vector;
+
 namespace structs
 {
 	struct Address
@@ -12,16 +16,16 @@ namespace structs
 		string country;
 	};
 
-	struct Company
-	{
-		string name;
-		Address address;
-	};
-
 	struct Person
 	{
 		string name;
 		string surname;
+		Address address;
+	};
+
+	struct Company
+	{
+		string name;
 		Address address;
 	};
 

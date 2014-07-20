@@ -1,9 +1,10 @@
 #include "stdafx.h"
+
 #include "Employee.h"
 
 using std::string;
-using structs::Person;
 
+using structs::Person;
 using sEmployee = structs::Employee;
 
 Employee::Employee()

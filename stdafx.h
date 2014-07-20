@@ -9,11 +9,13 @@
 
 #include <stdio.h>
 #include <tchar.h>
-#include <string>
 
 // TODO: reference additional headers your program requires here
 
+#include <string>
+
 #include "enums.h"
 #include "structs.h"
+#include "consts.h"
 
 #define SCR_WIDTH 80

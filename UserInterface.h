@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 
 #include "Core.h"
@@ -5,7 +7,6 @@
 
 using std::string;
 
-#pragma once
 class UserInterface
 {
 private:

@@ -1,7 +1,6 @@
 #include "stdafx.h"
-#include "Company.h"
 
-#include <iostream>
+#include "Company.h"
 
 using std::string;
 
@@ -24,7 +23,7 @@ Company::Company()
 	add(sCompany{
 		"APL",
 		structs::Address{
-			0,
+			1,
 			"Apple Road",
 			"CP203 203NQ",
 			"Cupertino",

@@ -1,5 +1,8 @@
-#include "Validator.h"
+#pragma once
+
 #include <vector>
+
+#include "Validator.h"
 
 using std::vector;
 using std::string;
@@ -9,7 +12,6 @@ using sCompany = structs::Company;
 typedef vector<sCompany> companyVector;
 typedef vector<string> stringVector;
 
-#pragma once
 class Company : Validator
 {
 private:

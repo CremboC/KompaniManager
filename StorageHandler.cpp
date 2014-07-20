@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "StorageHandler.h"
 
-#include <string>
-
 using std::string;
 
 StorageHandler::StorageHandler()

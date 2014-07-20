@@ -1,10 +1,9 @@
-#include "stdafx.h"
+#pragma once
 
-#include <iostream>
+#include "stdafx.h"
 
 using std::string;
 
-#pragma once
 class StorageHandler
 {
 public:
