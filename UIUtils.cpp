@@ -23,11 +23,10 @@ vector<int> UIUtils::paddingForCenter(string str)
 UIUtils::hashmap UIUtils::printCenteredHeader(vector<string> headers)
 {
 	hashmap m;
-
 	int seps, spaceLeft, perCol;
 
 	seps = headers.size() + 1;
-	spaceLeft = SCR_WIDTH - seps;
+	spaceLeft = SCR_WIDTH;
 	perCol = spaceLeft / headers.size();
 
 	for (vector<string>::size_type i = 0; i < headers.size(); i++)
@@ -53,29 +52,44 @@ void UIUtils::printCentered(string str)
 		<< string(padding[RIGHT], ' ') << endl;
 }
 
-void UIUtils::printRow(structs::Company c, bool header)
+void UIUtils::printHeader(hashmap headers)
 {
-	if (header)
-	{
-		cout << "|  "
-			<< "name" << "  |  "
-			<< "city" << "  |  "
-			<< "country" << "  |  "
-			<< "employees" << " |  "
-			<< endl;
+	int totalLength = 0;
 
-		cout << string(SCR_WIDTH, '-') << endl;
+	for (const auto& item : headers)
+	{
+		string h = item.first;
+		int pad = item.second;
+
+		cout << string(pad, ' ') << h << string(pad, ' ');
+
+		totalLength += pad * 2 + h.length();
 	}
 
+	// as some string produce odd paddings
+	// there might not be enough padding on the right
+	cout << string((totalLength < SCR_WIDTH) ? SCR_WIDTH - totalLength : 0, ' ');
 
-
-	// cout << 
+	cout << string(SCR_WIDTH, '-') << endl;
 }
+
+void UIUtils::printHeader(structs::Company c)
+{
+	hashmap headers = printCenteredHeader(consts::companyHeaders);
+	printHeader(headers);
+}
+
+void UIUtils::printHeader(structs::Employee e)
+{
+	hashmap headers = printCenteredHeader(consts::employeeHeaders);
+	printHeader(headers);
+}
+
+void UIUtils::printRow(structs::Company c, bool header)
+{}
 
 void printRow(structs::Employee e, bool header)
-{
-
-}
+{}
 
 void UIUtils::printPadding()
 {

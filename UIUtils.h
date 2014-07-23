@@ -29,14 +29,20 @@ private:
 
 	static vector<int> centredInColumn(string columnName, string text);
 
+	static void printHeader(hashmap);
+
 public:
 
 	// prints text in the center of the console
 	static void printCentered(string str);
 
-	static void printRow(structs::Company c, bool header = false);
+	static void printHeader(structs::Company);
 
-	static void printRow(structs::Employee e, bool header = false);
+	static void printHeader(structs::Employee);
+
+	static void printRow(structs::Company, bool header = false);
+
+	static void printRow(structs::Employee, bool header = false);
 
 	static void printPadding();
 };

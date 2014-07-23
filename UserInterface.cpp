@@ -60,6 +60,8 @@ void UserInterface::mainScreen()
 
 	utils.printCentered("HELLO, WELCOME TO KompaniManager");
 
+	utils.printHeader(structs::Company{});
+
 	companyVector comps = core.companies.all();
 
 	for (companyVector::size_type i = 0; i < comps.size(); i++)

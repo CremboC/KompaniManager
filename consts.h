@@ -1,13 +1,21 @@
 #pragma once
 
+#include <vector>
+
+using std::vector;
 using std::string;
 
 namespace consts
 {
-	static string companyHeaders[] = {
+	const static vector<string> companyHeaders = {
 		"name",
 		"city",
 		"country",
-		"employees"
+		"employees",
+		"test"
+	};
+
+	const static vector<string> employeeHeaders = {
+		"name"
 	};
 }
