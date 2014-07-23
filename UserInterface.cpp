@@ -1,28 +1,25 @@
 #include "stdafx.h"
 
 #include <iostream>
-#include <chrono>
-#include <thread>
 
 #include "UserInterface.h"
 #include "UIUtils.h"
 #include "Employee.h"
 #include "Company.h"
 #include "Core.h"
+#include "MenuScreen.h"
 
 using std::string;
 using std::cout;
 using std::cin;
 
 using std::endl;
-
-using std::this_thread::sleep_for;
-using std::chrono::milliseconds;
-
 UserInterface::UserInterface(Core core)
 {
 	this->core = core;
 	this->utils = new UIUtils();
+
+	mainScreen();
 }
 
 UserInterface::~UserInterface()
@@ -49,27 +46,28 @@ string UserInterface::strInput()
 	return input;
 }
 
-void UserInterface::waitForInput()
+char UserInterface::waitForInput()
 {
-	cin.get();
+	return cin.get();
+}
+
+char UserInterface::waitForInput(string msg, bool centered)
+{
+	if (centered)
+		utils->printCentered(msg);
+	else
+		cout << msg << endl;
+
+	return cin.get();
 }
 
 void UserInterface::mainScreen()
 {
-	// show all existing companies
-	utils->printPadding();
-
-	utils->printCentered("HELLO, WELCOME TO KompaniManager");
-
-	utils->printHeader(consts::companyHeaders);
-
-	companyVector comps = core.companies.all();
-
-	for (companyVector::size_type i = 0; i < comps.size(); i++)
+	if (currentScreen != nullptr)
 	{
-		utils->printRow(comps[i]);
-		cout << comps[i].name << endl;
+		delete currentScreen;
 	}
+	currentScreen = new MenuScreen(utils, this);
 }
 
 void UserInterface::employeeScreen()
@@ -88,3 +86,13 @@ void UserInterface::personScreen()
 
 void UserInterface::companyScreen()
 {}
+
+void UserInterface::render()
+{
+	if (currentScreen == nullptr)
+	{
+		throw new exceptions::IllegalStateException("No screen is set.");
+	}
+
+	currentScreen->render();
+}

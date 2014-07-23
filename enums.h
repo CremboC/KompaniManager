@@ -1,7 +1,13 @@
 #pragma once
-enum ErrorCode
+
+using std::string;
+
+namespace enums
 {
-	SUCCESS,
-	FAIL,
-	NOTFOUND
-};
+	enum ErrorCode
+	{
+		SUCCESS,
+		FAIL,
+		NOTFOUND
+	};
+}

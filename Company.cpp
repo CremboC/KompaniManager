@@ -35,11 +35,11 @@ Company::Company()
 Company::~Company()
 {}
 
-ErrorCode Company::add(sCompany comp)
+enums::ErrorCode Company::add(sCompany comp)
 {
 	companies.push_back(comp);
 
-	return SUCCESS;
+	return enums::SUCCESS;
 }
 
 companyVector Company::all()

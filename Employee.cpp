@@ -16,11 +16,11 @@ Employee::Employee()
 Employee::~Employee()
 {}
 
-ErrorCode Employee::add(sEmployee employee)
+enums::ErrorCode Employee::add(sEmployee employee)
 {
 	employees.push_back(employee);
 
-	return SUCCESS;
+	return enums::SUCCESS;
 }
 
 sEmployee Employee::get(int i)

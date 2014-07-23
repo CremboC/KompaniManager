@@ -24,7 +24,7 @@ public:
 	Employee();
 	~Employee();
 
-	ErrorCode add(sEmployee employee);
+	enums::ErrorCode add(sEmployee employee);
 	sEmployee get(int i);
 
 	bool validate(sEmployee employee);

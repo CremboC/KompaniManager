@@ -8,10 +8,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	Core core;
 	UserInterface ui(core);
 
-	// load main screen
-	ui.mainScreen();
+	while (ui.running)
+	{
+		try
+		{
+			ui.render();
+		}
+		catch (exceptions::Exception *e)
+		{
+			e->getMessage();
+		}
 
-	ui.waitForInput();
+		ui.clear();
+	}
 
 	return 0;
 }

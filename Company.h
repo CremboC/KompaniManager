@@ -21,7 +21,7 @@ public:
 	Company();
 	~Company();
 
-	ErrorCode add(sCompany comp);
+	enums::ErrorCode add(sCompany comp);
 
 	companyVector all();
 

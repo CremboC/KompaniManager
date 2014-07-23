@@ -9,5 +9,5 @@ class StorageHandler
 public:
 	StorageHandler();
 	~StorageHandler();
-	ErrorCode openFile(string uri);
+	enums::ErrorCode openFile(string uri);
 };

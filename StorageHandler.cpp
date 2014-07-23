@@ -9,7 +9,7 @@ StorageHandler::StorageHandler()
 StorageHandler::~StorageHandler()
 {}
 
-ErrorCode StorageHandler::openFile(string uri)
+enums::ErrorCode StorageHandler::openFile(string uri)
 {
-	return FAIL;
+	return enums::FAIL;
 }
