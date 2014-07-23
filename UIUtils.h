@@ -36,9 +36,7 @@ public:
 	// prints text in the center of the console
 	static void printCentered(string str);
 
-	static void printHeader(structs::Company);
-
-	static void printHeader(structs::Employee);
+	static void printHeader(vector<string>);
 
 	static void printRow(structs::Company, bool header = false);
 

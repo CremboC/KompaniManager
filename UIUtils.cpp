@@ -71,15 +71,9 @@ void UIUtils::printHeader(hashmap headers)
 	cout << string(SCR_WIDTH, '-') << endl;
 }
 
-void UIUtils::printHeader(structs::Company c)
+void UIUtils::printHeader(vector<string> headersVector)
 {
-	hashmap headers = printCenteredHeader(consts::companyHeaders);
-	printHeader(headers);
-}
-
-void UIUtils::printHeader(structs::Employee e)
-{
-	hashmap headers = printCenteredHeader(consts::employeeHeaders);
+	hashmap headers = printCenteredHeader(headersVector);
 	printHeader(headers);
 }
 
