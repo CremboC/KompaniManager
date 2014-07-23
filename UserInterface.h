@@ -11,7 +11,7 @@ class UserInterface
 {
 private:
 	Core core;
-	UIUtils utils;
+	UIUtils *utils;
 
 public:
 	UserInterface(Core core);

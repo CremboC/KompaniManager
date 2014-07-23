@@ -17,30 +17,44 @@ private:
 	typedef unordered_map<string, int> hashmap;
 
 	// padding index for the lefthand side
-	const static int LEFT = 0;
+	const static unsigned short int LEFT = 0;
 
 	// padding index for the righthand side
-	const static int RIGHT = 1;
+	const static unsigned short int RIGHT = 1;
+
+	unsigned int printedLines;
 
 	// returns padding from both side depending string length
-	static vector<int> paddingForCenter(string str);
+	vector<int> paddingForCenter(string str);
 
-	static hashmap printCenteredHeader(vector<string> headers);
+	hashmap printCenteredHeader(vector<string> headers);
 
-	static vector<int> centredInColumn(string columnName, string text);
+	vector<int> centredInColumn(string columnName, string text);
 
-	static void printHeader(hashmap);
+	void printHeader(hashmap);
+
+	string x(int t, char c) { return string(t, c); };
 
 public:
 
 	// prints text in the center of the console
-	static void printCentered(string str);
+	void printCentered(string str);
 
-	static void printHeader(vector<string>);
+	void printHeader(vector<string>);
 
-	static void printRow(structs::Company, bool header = false);
+	void printRow(structs::Company);
 
-	static void printRow(structs::Employee, bool header = false);
+	void printRow(structs::Employee);
 
-	static void printPadding();
+	void printPadding(bool bottom = false);
+
+	unsigned int getPrintedLines()
+	{
+		return printedLines;
+	}
+
+	void resetPrintedLines()
+	{
+		printedLines = 0;
+	}
 };

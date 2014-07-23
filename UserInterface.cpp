@@ -22,6 +22,7 @@ using std::chrono::milliseconds;
 UserInterface::UserInterface(Core core)
 {
 	this->core = core;
+	this->utils = new UIUtils();
 }
 
 UserInterface::~UserInterface()
@@ -56,17 +57,17 @@ void UserInterface::waitForInput()
 void UserInterface::mainScreen()
 {
 	// show all existing companies
-	utils.printPadding();
+	utils->printPadding();
 
-	utils.printCentered("HELLO, WELCOME TO KompaniManager");
+	utils->printCentered("HELLO, WELCOME TO KompaniManager");
 
-	utils.printHeader(consts::companyHeaders);
+	utils->printHeader(consts::companyHeaders);
 
 	companyVector comps = core.companies.all();
 
 	for (companyVector::size_type i = 0; i < comps.size(); i++)
 	{
-		utils.printRow(comps[i], (i == 0) ? true : false);
+		utils->printRow(comps[i]);
 		cout << comps[i].name << endl;
 	}
 }
@@ -79,7 +80,7 @@ void UserInterface::employeeScreen()
 
 	core.employees.add(e);
 
-	utils.printPadding();
+	utils->printPadding();
 }
 
 void UserInterface::personScreen()

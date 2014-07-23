@@ -4,7 +4,7 @@
 
 vector<int> UIUtils::paddingForCenter(string str)
 {
-	int left, right, diff;
+	unsigned short int left, right, diff;
 
 	// index 0 is left-side, index 1 is right-side padding
 	vector<int> padding(2);
@@ -23,7 +23,7 @@ vector<int> UIUtils::paddingForCenter(string str)
 UIUtils::hashmap UIUtils::printCenteredHeader(vector<string> headers)
 {
 	hashmap m;
-	int spacePerCol;
+	unsigned short int spacePerCol;
 
 	spacePerCol = SCR_WIDTH / headers.size();
 
@@ -41,49 +41,64 @@ vector<int> UIUtils::centredInColumn(string columnName, string text)
 	return r;
 }
 
-void UIUtils::printCentered(string str)
-{
-	std::vector<int> padding = paddingForCenter(str);
-
-	cout << string(padding[LEFT], ' ')
-		<< str
-		<< string(padding[RIGHT], ' ') << endl;
-}
-
 void UIUtils::printHeader(hashmap headers)
 {
-	int totalLength = 0;
+	unsigned short int totalLength = 0;
 
 	for (const auto& item : headers)
 	{
 		string h = item.first;
 		int pad = item.second;
 
-		cout << string(pad, ' ') << h << string(pad, ' ');
+		cout << x(pad, ' ') << h << x(pad, ' ');
 
 		totalLength += pad * 2 + h.length();
 	}
 
 	// as some string produce odd paddings
 	// there might not be enough padding on the right
-	cout << string((totalLength < SCR_WIDTH) ? SCR_WIDTH - totalLength : 0, ' ');
+	cout << x((totalLength < SCR_WIDTH) ? SCR_WIDTH - totalLength : 0, ' ');
 
-	cout << string(SCR_WIDTH, '-') << endl;
+	cout << x(SCR_WIDTH, '-') << endl;
+
+	printedLines++;
+}
+
+void UIUtils::printCentered(string str)
+{
+	std::vector<int> padding = paddingForCenter(str);
+
+	cout << x(padding[LEFT], ' ')
+		<< str
+		<< x(padding[RIGHT], ' ') << endl;
+
+	printedLines++;
 }
 
 void UIUtils::printHeader(vector<string> headersVector)
 {
+	vector<string>::iterator it;
+	it = headersVector.begin();
+
+	headersVector.insert(it, "#");
+
 	hashmap headers = printCenteredHeader(headersVector);
 	printHeader(headers);
 }
 
-void UIUtils::printRow(structs::Company c, bool header)
-{}
-
-void printRow(structs::Employee e, bool header)
-{}
-
-void UIUtils::printPadding()
+void UIUtils::printRow(structs::Company c)
 {
-	cout << string(SCR_WIDTH, '-') << endl;
+	//cout << "abc" * 5;
+}
+
+void printRow(structs::Employee e)
+{}
+
+void UIUtils::printPadding(bool bottom)
+{
+	cout << x(SCR_WIDTH, '-') << endl;
+
+	if (bottom)
+	{
+	}
 }
