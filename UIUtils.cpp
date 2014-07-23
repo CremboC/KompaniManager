@@ -23,15 +23,13 @@ vector<int> UIUtils::paddingForCenter(string str)
 UIUtils::hashmap UIUtils::printCenteredHeader(vector<string> headers)
 {
 	hashmap m;
-	int seps, spaceLeft, perCol;
+	int spacePerCol;
 
-	seps = headers.size() + 1;
-	spaceLeft = SCR_WIDTH;
-	perCol = spaceLeft / headers.size();
+	spacePerCol = SCR_WIDTH / headers.size();
 
 	for (vector<string>::size_type i = 0; i < headers.size(); i++)
 	{
-		m[headers[i]] = (perCol - headers[i].length()) / 2;
+		m[headers[i]] = (spacePerCol - headers[i].length()) / 2;
 	}
 
 	return m;
